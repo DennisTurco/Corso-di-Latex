@@ -1,0 +1,554 @@
+\documentclass{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{xcolor}
+\usepackage{soul} % per sottolineature
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{booktabs} % per le tabelle
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{listings}
+\lstset{language=[LaTeX]{TeX}} % Set your language (you can change the language for each code-block optionally)
+
+\title{Lezioni Latex, Corso Completo}
+\author{Dennis Turco}
+\date{\today}
+
+%%% QUI I MIEI COMANDI %%%
+\newcommand{\mioStile}[1] {
+    \hl{\textit{\textbf{\texttt{#1}}}}
+}
+
+\newcommand{\mioStileColorato}[2] {
+    {\sethlcolor{#1}\mioStile{#2}}
+}
+%%% FINE I MIEI COMANDI %%%
+
+\begin{document}
+    \maketitle %crea il titolo e sottotilo se preseente
+    \tableofcontents %serve per impostare un indice
+
+    \chapter{Introduzione}
+        Riassunto preparato seguendo le lezioni dell'Università di Parma del corso di Latex 2022.
+
+        viene preso come riferimento il testo: \href{https://www.dei.unipd.it/~addetto/manuali_online/ArteLaTeX.pdf}{MANUALE}
+    
+        %------------------------------------------- Lezione 1 -------------------------------------------
+
+    \chapter{Lezione 1}
+
+        \section{Caratteri Speciali}
+        Alcuni dei caratteri speciali più utilizzati:
+
+        \begin{itemize}
+            \item doppio apice;
+            \item hashtag/cancelletto;
+            \item dollaro;
+            \item percento;
+            \item e commerciale;
+            \item apostrofo;
+            \item backslash;
+            \item accento acuto;
+            \item linea bassa;
+            \item accento grave;
+            \item aperta graffa;
+            \item chiusa graffa; 
+        \end{itemize}
+
+        \subsection{doppio apice}
+            comando: \verb!"! \\
+            carattere: \textcolor{blue}{"} \\
+            esempio: \textcolor{blue}{"}Che bella giornata\ldots \textcolor{blue}{"} cit.\ by Ugo
+        \subsection{hashtag/cancelletto}
+            comando: \verb!\#! \\
+            carattere: \textcolor{blue}{\#} \\
+            esempio: \textcolor{blue}{\#}passiamo\_esame
+        \subsection{dollaro}
+            comando: \verb!\$! \\
+            carattere: \textcolor{blue}{\$} \\
+            esempio: Quell' articolo costa 29.99\textcolor{blue}{\$} 
+        \subsection{percento}
+            comando: \verb!\%! \\
+            carattere: \textcolor{blue}{\%} \\
+            esempio: 50\textcolor{blue}{\%}
+        \subsection{e commerciale}
+            comando: \verb!\&! \\
+            carattere: \textcolor{blue}{\&} \\
+            esempio: x == y \textcolor{blue}{\&\&} x \verb!>! 10
+        \subsection{apostrofo}
+            comando: \verb!'! \\
+            carattere: \textcolor{blue}{'} \\
+            esempio: Bell\textcolor{blue}{'} idea!
+        \subsection{backslash}
+            comando: \verb!\! \\
+            carattere: \textcolor{blue}{} \\
+            esempio: \verb!\!
+        \subsection{accento acuto} 
+            comando: \verb!'! \\
+            carattere: \textcolor{blue}{'} \\
+            esempio: \'{e}
+        \subsection{linea bassa}
+            comando: \verb!\_! \\
+            carattere: \textcolor{blue}{\_} \\
+            esempio: il mio nickname \'e: Mr\textcolor{blue}{\_}Denno
+        \subsection{accento grave}
+            comando: \verb!`! \\
+            carattere: \textcolor{blue}{`} \\
+            esempio: \`{e}
+        \subsection{aperta graffa}
+            comando: \verb!\{! \\
+            carattere: \textcolor{blue}{\{} \\
+            esempio:??
+        \subsection{chiusa graffa}
+            comando: \verb!\}! \\    
+            carattere: \textcolor{blue}{\}} \\
+            esempio:??
+        
+        % possibile generare anche subsubsection
+
+    %------------------------------------------- Lezione 2 -------------------------------------------
+
+    \chapter{Lezione 2}
+
+        \section{tex}
+            \TeX\
+
+        \section{Spazi nei comandi}
+            \begin{itemize}
+                \item comando \verb!\TeX\!: \TeX\ è bello!! % questo mi da la spaziatura
+                \item comando \verb!\TeX!: \TeX è bello!! % questo NON mi da la spaziatura
+            \end{itemize}
+        
+        \section{Gli Argomenti}
+            \begin{itemize}
+                \item comando \verb!\textit{argomento}!: \textit{argomento} "argomento" è scritto in corsivo.
+                \item comando \verb!\setlength{parindent}{1mm}!: \setlength{parindent}{1mm}.
+            \end{itemize}   
+        
+        \section{Argomenti Opzionali}
+            \begin{itemize}
+                \item comando \verb!\framebox{belli}!: \framebox{belli}
+                \item comando \verb!\framebox[2cm]{belli}!: \framebox[2cm]{belli} 
+                \item comando \verb!\framebox[2cm]{belli}!: \framebox[2cm]{belli}  
+                \item comando \verb!\framebox[2cm][l]{belli}!: \framebox[2cm][l]{belli}   
+                \item comando \verb!\framebox[2cm][r]{belli}!: \framebox[2cm][r]{belli}   
+                \item comando \verb!\framebox[2cm][c]{belli}!: \framebox[2cm][c]{belli}
+            \end{itemize}   
+
+        \section{testo formattato}
+            \begin{itemize}
+                \item comando \verb!\textit{corsivo}!: \textit{corsivo}
+                \item comando \verb!\textbf{grassetto}!: \textbf{grassetto}
+                \item comando \verb!\texttt{typewriter}!: \texttt{typewriter}
+                \item comando \verb!\hl{Potete}!: \hl{Potete}
+                %\item \reflectbox{fare} questo non va (dovrebbe scrivere al contrario)
+                \item comando \verb!\textcolor{red}{molto}!: \textcolor{red}{molto}
+                \item comando \verb!\textsc{altro}!: \textsc{altro}
+            \end{itemize}
+
+        \section{dichiarazioni}
+            \begin{itemize}
+                \item comando \verb!\small{}!:        % non so cosa fa
+                \item comando \verb!\linespread{}!:   % non so cosa fa
+                \item comando \verb!\appendix{}!:     % non so cosa fa
+            \end{itemize}
+
+        \section{Dihiarazioni per le Dimensioni del Testo}
+            \begin{itemize}
+                \item comando \verb!\tiny!: {\tiny Prova}
+                \item comando \verb!\tiny!: {\footnotesize Prova}
+                \item comando \verb!\tiny!: {\normalsize Prova}
+                \item comando \verb!\tiny!: {\large Prova}
+                \item comando \verb!\tiny!: {\Large Prova}
+                \item comando \verb!\tiny!: {\LARGE Prova}
+                \item comando \verb!\tiny!: {\huge Prova}
+            \end{itemize}
+
+        \section{Test dei comandi e delle dichiarazioni}
+            \begin{itemize}
+                \item Qui il primo comando che sottolinea: \hl{sono sottolineato} (comando \verb!\hl{sono sottolineato}!).
+                \item Qui il primo comando che sottolinea in verde: {\sethlcolor{green}\hl{sono sottolineato}} (comando \verb!{\sethlcolor{green}\hl{sono sottolineato}}!). % usiamo un ambiente in cui all'interno del GRUPPO abbiamo settato un colore definito (verde)
+                \item Qui il primo comando che sottolinea e cambia stile: \hl{\textit{sono sottolineato}} (comando \verb!\hl{\textit{sono sottolineato}}!).
+                \item Qui il primo comando che cambia stile 2x e sottolinea: \hl{\textit{\textbf{sono sottolineato}}} (comando \verb!\hl{\textit{\textbf{sono sottolineato}}}!).
+                \item Qui il primo comando che cambia stile 3x e sottolinea: \hl{\textit{\textbf{\texttt{sono sottolineato}}}} (comando \verb!\hl{\textit{\textbf{\texttt{sono sottolineato}}}}!).
+                \item Qui il primo comando che cambia stile 3x e sottolinea: \hl{\textsc{\textbf{sono sottolineato}}} (comando \verb!\hl{\textsc{\textbf{sono sottolineato}}}!).
+                \item Qui il primo comando che cambia stile e sottolinea: \hl{\textsc{sono sottolineato}} (comando \verb!\hl{\textsc{sono sottolineato}}!).
+                \item \href{https://genius.com/Rancore-freccia-lyrics}{Questa è una freccia $\rightarrow$ (cit. Rancore)} \\
+                    (comando \verb!\href{https://genius.com/Rancore-freccia-lyrics}{Questa è una... !)      
+                \item Questa è una frazione $\frac{num}{denum}$ (comando \verb!$\frac{num}{denum}$!).
+                \item Questo è il mio stile: \mioStile{mio stile} (comando \verb!\mioStile{mio stile}!).
+                \item Questo è il mio stile colorato: \mioStileColorato{pink}{mio stile colorato} (comando \verb!\mioStileColorato{pink}{mio stile colorato}!). 
+            \end{itemize}
+
+        \section{blindtext}
+            con il comando \verb!\blindtext! o \verb!\Blindtext! è possibile generare delle scritte a caso tanto per verificare lo stile e la formattazione.
+
+        \section{Classe di Documento}
+            Di seguito le principali classi standard di documento:
+            \subsection{Alcune Classi}
+                \begin{itemize}
+                    \item \textbf{article}: Per scrivere articoli.
+                    \item \textbf{report}: Per scrivere relazioni o tesi strutturate in diversi capitoli e dotate eventualmente di un sommario.
+                    \item \textbf{book}: Per scrivere libri.
+                    \item \textbf{letter}: Per scrivere lettere. 
+                \end{itemize}
+
+            \subsection{Alcune Opzioni}
+                \begin{itemize}
+                    \item \textbf{10pt, 11pt, 12pt}: Impostano la dimensione del font principale del documento. Valore predefinito è di 10pt.
+                    \item \textbf{a4paper, a5paper, etc.}: Definiscono le dimensioni del foglio. Valore predefinito è il formato americano \textbf{letterpaper}.
+                    \item \textbf{oneside, twoside}: Specificano se verrà composto un documento a singola o doppia facciata. Di default \textbf{article} e \textbf{report} sono a singola facciata e \textbf{book} è a doppia facciata.
+                    \item \textbf{twocolumn}: Stampa il documento su due colonne.
+                \end{itemize}
+
+            \subsection{Alcune Opzioni II}
+                \begin{itemize}
+                    \item \textbf{openright, openany}: Rispettivamente, fanno iniziare i capitoli sempre in una pagina destra o nella successiva pagina a disposizione.
+                    \item \textbf{titlepage, notitlepage}: Specificano se dopo il titolo del documento debba avere inizio una nuova pagina (default \textbf{report} e \textbf{book}) o meno (default \textbf{article}).
+                    \item \textbf{fleqn}: Allinea le formule a sinistra rispetto a un margine rientrato.
+                    \item \textbf{leqno}: Mette la numerazione delle formule a sinistra anzichè a destra.
+                    \item \textbf{draft, final → draft}: permette una miglior revisione e una più veloce compilazione a discapito di una forma non finale del documento.
+                \end{itemize}
+
+        \section{Pacchetti}
+            I pacchetti si caricano nel preambolo con il comando \verb!\usepackage!.
+
+            \subsection{Pacchetti Utili I}
+                \begin{itemize}
+                    \item \textbf{amsmath}: Fornisce numerose estensioni per gestire al meglio documenti che contengono formule matematiche.
+                    \item \textbf{amssymb}: Arricchisce la scelta di simboli matematici.
+                    \item \textbf{amsthm}: Migliora la gestione degli enunciati matematici.
+                    \item \textbf{array}: Permette di definire nuovi descrittori per le tabelle.
+                    \item \textbf{babel}: Permette di usare lingue diverse dall'inglese.
+                    \item \textbf{backref}: Nelle voci bibliografiche, indica le pagine del documento in cui l'opera viene citata.
+                    \item \textbf{biblatex}: Offre all'autore una soluzione complessiva e automatica per gestire e personalizzare la bibliografia.
+                    \item \textbf{booktabs}: Migliora l'aspetto delle tabelle.
+                    \item \textbf{caption}: Personalizza le didascalie.
+                \end{itemize}
+
+            \subsection{Pacchetti Utili II}
+                \begin{itemize}
+                    \item \textbf{changepage}: Modifica i margini di una singola pagina.
+                    \item \textbf{enumitem}: Personalizza gli elenchi.
+                    \item \textbf{eurosym}: Stampa il simbolo dell'euro.
+                    \item \textbf{fancyhdr}: Personalizza lo stile della pagina.
+                    \item \textbf{float}: Crea oggetti mobili personalizzati e ne forza la collocazione sulla pagina.
+                    \item \textbf{fontenc}: Gestisce la codifica dei font che \LaTeX\ usa per comporre il documento.
+                    \item \textbf{geometry}: Imposta i margini di pagina nelle classi standard.
+                    \item \textbf{graphicx}: Gestisce l'inclusione delle immagini.
+                    \item \textbf{hyperref}: Abilita i riferimenti ipertestuali.
+                    \item \textbf{indentfirst}: Rientra il primo capoverso di ogni unità di sezionamento del testo (in accordo con la tradizione italiana).
+                \end{itemize}
+
+            \subsection{Pacchetti Utili III}
+                \begin{itemize}
+                    \item \textbf{changepage}: Modifica i margini di una singola pagina.
+                    \item \textbf{enumitem}: Personalizza gli elenchi.
+                    \item \textbf{eurosym}: Stampa il simbolo dell'euro.
+                    \item \textbf{fancyhdr}: Personalizza lo stile della pagina.
+                    \item \textbf{float}: Crea oggetti mobili personalizzati e ne forza la collocazione sulla pagina.
+                    \item \textbf{fontenc}: Gestisce la codifica dei font che \LaTeX\ usa per comporre il documento.
+                    \item \textbf{geometry}: Imposta i margini di pagina nelle classi standard.
+                    \item \textbf{graphicx}: Gestisce l'inclusione delle immagini.
+                    \item \textbf{hyperref}: Abilita i riferimenti ipertestuali.
+                    \item \textbf{indentfirst}: Rientra il primo capoverso di ogni unità di sezionamento del testo (in accordo con la tradizione italiana).
+                \end{itemize}
+
+            \subsection{Pacchetti Utili IV}
+                \begin{itemize}
+                    \item \textbf{inputenc}: Interpreta correttamente i caratteri accentati e nazionali scritti direttamente con la tastiera.
+                    \item \textbf{listings}: Permette di scrivere codici, controllandone finemente il formato.
+                    \item \textbf{longtable}: Ripartisce una tabella su più pagine.
+                    \item \textbf{makeidx}: Fornisce comandi per realizzare l'indice analitico.
+                    \item \textbf{microtype}: Migliora il riempimento delle righe.
+                    \item \textbf{minitoc}: Genera i miniindici.
+                    \item \textbf{multicol}: Dispone e bilancia il testo su più colonne.
+                    \item \textbf{showlabels}: Durante la revisione, permette di controllare la correttezza dei riferimenti \verb!\label!, \verb!\ref!, \verb!\cite!, eccetera.
+                    \item \textbf{subfig}: Affianca figure e tabelle.
+                \end{itemize}
+
+            \subsection{Pacchetti Utili V}
+                \begin{itemize}
+                    \item \textbf{tabularx}: Compone tabelle di larghezza impostata dall'utente.
+                    \item \textbf{url}: Imposta la scrittura degli indirizzi Internet.
+                    \item \textbf{varioref}: Gestisce in modo flessibile i riferimenti incrociati.
+                    \item \textbf{xcolor}: Gestisce il colore.
+                \end{itemize}
+            
+        \section{Stili di Pagina}
+            Lo stile di pagina è l'organizzazione del contenuto di testatina e piè di pagina scelta per il proprio documento. \\
+            \framebox{command pagestyle\{style\}}
+
+            \subsection{I Predefiniti}
+                \begin{itemize}
+                    \item \textbf{plain}: Stampa i numeri di pagina nel piè di pagina, lasciando vuota la testatina. È lo stile predefinito nelle classi \textbf{article} e \textbf{report}.
+                    \item \textbf{empty}: Lascia testatina e pi`e di pagina vuoti.
+                    \item \textbf{headings}: Lascia il piè di pagina vuoto, e compone le testatine diversamente a seconda della classe scelta.
+                \end{itemize}
+
+            \subsection{I Custom}
+                \begin{itemize}
+                    \item \textbf{myheadings}: L'autore è chiamato a specificare il contenuto delle testatine a ogni nuovo capitolo (o paragrafo, se la classe è article), dando \verb!\markboth! per comporle entrambe, oppure \verb!\markright! per comporre soltanto quella di destra.
+                    \item Il pacchetto \textbf{fancyhdr} crea stili di pagina personalizzati.
+                    \item Il comando \verb!\thispagestyle{⟨stile⟩}! imposta \textbf{stile} solo nella pagina corrente.
+                \end{itemize}
+
+    %------------------------------------------- Lezione 3 -------------------------------------------
+
+    \chapter{Lezione 3}
+
+        \section{A Capo}
+            In casi particolari pu`o essere necessario interrompere una riga.
+
+            \begin{itemize}
+                \item comando \verb!\\!: si ne incomincia una riga nuova senza iniziare un nuovo capoverso.
+                \item comando \verb!\newline!: si ne incomincia una riga nuova senza iniziare un nuovo capoverso.
+            \end{itemize}
+
+            Alcuni nomi propri o i tecnicismi come nitroidrossilamminico o macroistruzione, richiedono la sillabazione etimologica anzich è quella di default.
+            
+            esempio1:
+                \begin{center}
+                    \verb!\hyphenation{nitro-idrossil-amminico ma-cro-istru-zio-ne}! = 
+                    \hyphenation{nitro-idrossil-amminico-ma-cro-istru-zio-ne}
+                \end{center}
+            
+            il comando \verb!\mbox{arg}! serve per forzare la NON sillabazione del testo.
+        
+        \section{Sezionare il Testo}
+            \begin{itemize}
+                \item comando \verb!\part!: Parte
+                \item comando \verb!\chapter!: Capitolo (Non disponibile nella classe article)
+                \item comando \verb!\section!: Paragrafo
+                \item comando \verb!\subsection!: Sottoparagrafo
+                \item comando \verb!\subsubsection!: Sotto-sottoparagrafo
+                \item comando \verb!\paragraph!: Sezione di livello ancora più basso
+                \item comando \verb!\subparagraph!: Sezione al più basso livello possibile
+            \end{itemize}
+
+            in relazione alla numerazione delle pagine:
+            \begin{itemize}
+                \item comando \verb!\frontmatter!: non numera i capitoli e numera le pagine con numeri romani minuscoli
+                \item comando \verb!\mainmatter!: numera i capitoli e le pagine con numeri arabi (la numerazione delle pagine riprende da 1).
+                \item comando \verb!\backmatter!: non numera i capitoli e continua la numerazione araba delle pagine dal materiale principale.
+                \item comando \verb!\appendix!: che cambia i numeri dei capitoli (o dei paragrafi, se la classe impostata `e article) in lettere.
+                \item comando \verb!\tableofcontent!:  produce l'indice nel punto in cui viene inserito.
+            \end{itemize}
+
+        \section{Riferimenti}
+            Questi riferimenti permettono di associare l'identificativo (spesso cliccabile) di sezioni, figure, tabelle, ecc, nelle parti di testo dove sono “citate”.
+            \begin{itemize}
+                \item comando \verb!\label{etichetta}!: setta l'identificatore univoco etichetta (per convenzione preceduto da sec: per una sezione, fig: per una figura, eccetera) dell'oggetto considerato
+                \item comando \verb!\ref{etichetta}!: stampa il numero della sezione o dell'oggetto indicato in etichetta;
+                \item comando \verb!\pageref{etichetta}!: si comporta come \verb!\ref!, stampando però il numero di pagina.
+            \end{itemize}
+        
+        \section{Note}
+            \begin{itemize}
+                \item comando \verb!\marginpar{testo della nota a margine}!: Una nota a margine;
+                \item comando \verb!\footnote{testo della nota a margine}!: Il comando per stampare una nota a pi`e di pagina;
+                \item comando \verb!\emph{testo}!: per evidenziare le parole;
+            \end{itemize}
+                
+        \section{Elenchi puntati, numerati e descrizioni}
+            Gli elenchi permettono:
+            \begin{itemize}
+                \item Di migliorare:
+                \begin{enumerate}
+                    \item leggibilità; ed
+                    \item estetica.
+                \end{enumerate}
+                \item Di strutturare le idee.
+            \end{itemize} 
+            Ogni elenco può essere
+            composto da elementi:
+            \begin{description}
+                \item [semplici] composti da un solo enunciato;
+                \item [complessi] composti da più enunciati.
+            \end{description}
+
+    %------------------------------------------- Lezione 4 -------------------------------------------
+
+    \chapter{Lezione 4}
+
+            \section{Formule}
+                \subsection{Formule in Linea}
+                    Per scrivere una formula in linea usare: \verb!$formula$!, oppure, \verb!\(...\)!.
+
+                    esempio: \\
+                        ci sono voluti secoli per dimostrare che quando $n > 2$ \emph{non} ci sono 
+                        3 interi positivi $a$, $b$, $c$ tali che $a^n+b^n=c ^n$
+
+                \subsection{Formule in Display}
+                    La formula è centrata e non compressa, a numeri e simboli è
+                    assegnato lo spazio che devono avere. \\
+                    Per scrivere formule in display usare: \verb!\[...\]!.
+                    
+                    esempio:
+\begin{multicols}{2}
+\begin{lstlisting}[frame=single]
+se $f$ è continua e: 
+\[
+F(x)=\int_a^x f(t)\, dt,
+\]
+allora \ldots 
+\end{lstlisting}
+%
+\columnbreak{}
+%
+se $f$ è continua e 
+\[
+F(x)=\int_a^x f(t)\, dt,
+\]
+allora \ldots 
+\end{multicols}
+                \emph{Nota}:   è possibile scrivere in modalità testuale all'interno di una formula matematica inserendo
+                        il comando \verb!\text{testo}!
+
+                esempio:
+\begin{multicols}{2}
+\begin{lstlisting}[frame=single]
+$x+y+z=n$ \\
+$ x + y + z = n $
+\[
+z^2+1=0 \quad
+\text{per $z=\pm i $.} \]
+\end{lstlisting}
+%
+\columnbreak{}
+%
+$x+y+z=n$ \\
+$ x + y + z = n $
+\[
+z^2+1=0 \quad
+\text{per $z=\pm i $.} \]
+\end{multicols}
+
+            \section{Tabelle e Figure}
+                Tabelle e figure sono tra gli oggetti più usati nella composizione dei documenti.
+                Pacchetti fondamentali per l'utilizzo d'immagini sono \textbf{booktabs} e \textbf{graphicx}.
+                \subsection{Tabelle}
+                    Le celle di una tabella vanno separate tra loro con il carattere separatore \&. \\
+                    Le righe devono terminare con il comando \verb!\\!. \\
+                    Generalmente le linee di separazione orizzontali si stampano con il comando \verb!\hrule!.
+                    Il pacchetto \textbf{booktabs} prevede anche i comandi: \verb!\toprule, \midrule, \bottomrule!. 
+                    
+                    \begin{center}
+                        \begin{tabular}{II}
+                            \toprule
+                            Descrittore & Spiegazione \\
+                            \midrule
+                            l & Allinea il contenuto della cella a sinistra \\
+                            c & Centra il contenuto della cella \\
+                            r & Allinea il contenuto della cella a destra \\
+                            p{largh} & Giustifica un blocco di testo largo \emph{\textbf{largh}} \\
+                            \bottomrule
+                        \end{tabular}
+                    \end{center}
+
+                    esempio:
+\begin{multicols}{2}
+\begin{lstlisting}[frame=single]
+La tabella Testuale:
+\begin{center}
+\begin{tabular}{II}
+\toprule
+Alcaloide & Origine \\
+\midrule
+altropina & belladonna \\
+chinina & china \\
+morfina & papavero \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{lstlisting}
+%
+\columnbreak{}
+%
+La tabella Testuale:
+\begin{center}
+\begin{tabular}{II}
+\toprule
+Alcaloide & Origine \\
+\midrule
+altropina & belladonna \\
+chinina & china \\
+morfina & papavero \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{multicols}
+
+                \subsection{Figure}
+                    Il comando \verb!\includegraphics[chiave=valore,...]{immagine}! include l'immagine. \\
+                    Il comando \graphicspath{{grafici/},{foto/}} serve per indicare le sottocartelle dove sono presenti le immagini.\\
+                    
+                    \begin{center}
+                        \begin{tabular}{II}
+                            \toprule
+                            Opzione & Spiegazione \\
+                            \midrule
+                            width & Ridimensiona l'immagine alla larghezza specificata \\
+                            height & Ridimensiona l'immagine all'altezza specificata \\
+                            angle & Ruota l'immagine in senso antiorario \\
+                            scale & Riassegna le dimensioni dell'immagine \\
+                            \bottomrule
+                        \end{tabular}
+                    \end{center}
+
+                    esempio:   
+\begin{multicols}{2}
+\begin{lstlisting}[frame=single]
+La figura
+\begin{center}
+\includegraphics[width=%
+0.5\columnwith]%
+{img/unipr.png}
+\end{center}
+Riproduce il logo di unipr
+\end{lstlisting}
+%
+\columnbreak{}
+%
+La figura:
+\begin{center}
+
+\end{multicols}
+
+                \section{Oggetti Mobili}
+                    Tabelle e figure non devono essere su più pagine. \\
+                    Questo problema pu`o essere risolto rendendole “mobili”, o \emph{\textbf{floating}}. \\
+                    \LaTeX\ così le stamper`a nella posizione migliore. \\
+                    \LaTeX\ gestisce gli oggetti mobili con due ambienti standard dedicati: 
+                    \begin{itemize}
+                        \item table per le tabelle;
+                        \item figure per le figure.
+                    \end{itemize}
+
+                    Si può suggerire dove inserire gli oggetti con \verb!\begin{table}[indicatori]!.
+
+                    \begin{center}
+                        \begin{tabular}{II}
+                            \toprule
+                            Indicatore &  Chiede a \LaTeX\ di mettere l'oggetto \\
+                            \midrule
+                            width & Qui (here), se possibile \\
+                            height & In cima (top) alla pagina \\
+                            angle & In fondo (bottom) alla pagina \\
+                            scale & In una pagina di soli oggetti mobili (page of floats) \\
+                            ! & Va incontro il più possibile alle preferenze dell'autore \\
+                            \bottomrule
+                        \end{tabular}
+                    \end{center}
+
+                    Esempi di collocazione sono: \verb!\begin{table}[tbp] oppure \begin{figure}[!hbp]!.
+                    \begin{itemize}
+                        \item comando \verb!\caption{didascalia}!: stampa l'intestazione Tabella o Figura e la sua \emph{\textbf{didascalia}} e assegna all'oggetto un numero progressivo;
+                        \item comando \verb!\caption[didascalia breve]{didascalia}!: variante che stampa una versione ridotta in indice;
+                        \item comando \verb!\label!: va usato DOPO dopo il corrispondente \verb!\caption!;
+                        \item comando \verb!\listoftables e \listoffigures!: si ottengono gli indici di tabelle e figure.
+                    \end{itemize}
+                
+\end{document}
