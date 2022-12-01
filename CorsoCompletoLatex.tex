@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
@@ -387,6 +387,8 @@
                     Per scrivere formule in display usare: \verb!\[...\]!.
                     
                     esempio:
+
+\begin{minipage}{\linewidth} % evito che mi vada a capo a meta'
 \begin{multicols}{2}
 \begin{lstlisting}[frame=single]
 se $f$ è continua e: 
@@ -404,10 +406,14 @@ F(x)=\int_a^x f(t)\, dt,
 \]
 allora \ldots 
 \end{multicols}
+\end{minipage}
+
                 \emph{Nota}:   è possibile scrivere in modalità testuale all'interno di una formula matematica inserendo
                         il comando \verb!\text{testo}!
 
                 esempio:
+
+\begin{minipage}{\linewidth}
 \begin{multicols}{2}
 \begin{lstlisting}[frame=single]
 $x+y+z=n$ \\
@@ -425,6 +431,7 @@ $ x + y + z = n $
 z^2+1=0 \quad
 \text{per $z=\pm i $.} \]
 \end{multicols}
+\end{minipage}
 
             \section{Tabelle e Figure}
                 Tabelle e figure sono tra gli oggetti più usati nella composizione dei documenti.
@@ -513,8 +520,6 @@ Riproduce il logo di unipr
 \columnbreak{}
 %
 La figura:
-\begin{center}
-
 \end{multicols}
 
                 \section{Oggetti Mobili}
@@ -551,4 +556,134 @@ La figura:
                         \item comando \verb!\listoftables e \listoffigures!: si ottengono gli indici di tabelle e figure.
                     \end{itemize}
                 
+    %------------------------------------------- Lezione 5 -------------------------------------------
+    
+    \chapter{Lezione 5}
+        \section{Bibliografia}
+            La \textbf{bibliografia} è un aspetto fondamentale di ogni documento
+            accademico.
+            
+            Si può creare la bibliografia in due modi:
+            \begin{itemize}
+                \item a mano, con l'ambiente \emph{\textbf{thebibliography}};
+                \item in automatico, con il pacchetto \emph{\textbf{biblatex}} (consigliato).
+            \end{itemize}
+            
+            Per riferirsi a un elemento della bibliografia si una \verb!\cite!.
+            
+            esempio:
+
+%TODO:: non si vede
+\begin{minipage}{\linewidth}
+\begin{multicols}{2}
+\begin{lstlisting}[frame=single]
+Si veda~\cite[p.~7]{eco:tesi}
+per maggiori dettagli.
+
+\begin{thebibliography}{9}
+\bibitem{eco:tesi}
+Eco, Umberto (1977),
+\emph{Come si fa una tesi
+di laurea},
+Bompiani, Milano.
+\bibitem{mori:tesi}
+Mori, Lapo Filippo (2007),
+''Scrivere la tesi di 
+laurea con \LaTeX'',
+\Ars~(3).
+\end{thebibliography}
+\end{lstlisting}
+%
+\columnbreak{}
+%
+Si veda~\cite[p.~7]{eco:tesi}
+per maggiori dettagli.
+
+\begin{thebibliography}{9}
+\bibitem{eco:tesi}
+Eco, Umberto (1977),
+\emph{Come si fa una tesi
+di laurea},
+Bompiani, Milano.
+\bibitem{mori:tesi}
+Mori, Lapo Filippo (2007),
+''Scrivere la tesi di 
+laurea con \LaTeX'',
+\Ars~(3).
+\end{thebibliography}
+\end{multicols}
+\end{minipage}
+
+
+            Da includere nel seguente modo:
+            \begin{itemize}
+                \item \verb!\usepackage[italian]{babel}!
+                \item \verb!\usepackage[babel]{csquote}!
+                \item \verb!\usepackage[opzioni]{biblatex}!
+            \end{itemize}
+
+            Tutti i riferimenti bibliografici vanno inseriti in un file a parte,
+            con estensione \textbf{.bib.}
+
+            Questo file può contenere anche \textbf{record} non utilizzati.
+
+            Il file \textbf{.bib.} pu`o essere utilizzato da più documenti.
+
+            I record si accedono con \verb!\cite! (o sue variazioni).
+
+            esempio file .bib:
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[frame=single]
+@book{eco : tesi,
+ author = {Eco, Umberto},
+ title = {Come si fa una tesi di laurea},
+ publisher = {Bompiani},
+ year = {1977},
+ location = {Milano}
+}
+
+@article{mori : tesi,
+ author = {Mori, Lapo Filippo},
+ title = {Scrivere la tesi di laurea con \LaTeX},
+ journaltitle = {\Ars},
+ number = {3},
+ year = {2007}
+}
+
+@manual{mori : poesie,
+ author = {Mori, Lapo Filippo},
+ title = {Scrivere poesie con \LaTeX},
+ publisher = {Bompiani},
+ year = {2007},
+ url = {http://www.guit.sssup.it/}
+}
+
+@manual{wiki : latex,
+ title = {\LaTeX{} su Wikipedia},
+ year = {2010},
+ url = {http://www.wikipedia.org/wiki/LaTeX},
+ sortkey = {wiki},
+ label = {wiki}
+}       
+\end{lstlisting}           
+\end{minipage}
+            
+Solitamente la bibliografia è gestita dal \textbf{tipo di documento}.
+
+Si può però personalizzare con le opzioni del pacchetto \textbf{biblatex}
+per decidere come verrà stampata.
+
+Ad esempio: 
+\verb!\usepackage[bibstyle=authortitle,citestyle=verbose-trad1]{biblatex}!
+personalizza come si comporta la citazione nel testo e il record in
+bibliografia.
+
+I file che contengono i record si importano il comando
+\verb!\bibliography{filebib1,filebib2,. . . }!.
+
+La bibliografia si stampa con il comando \verb!\printbibliography!.
+
+Bisogna aggiungere la bibliografia all'indice!!
+
 \end{document}
