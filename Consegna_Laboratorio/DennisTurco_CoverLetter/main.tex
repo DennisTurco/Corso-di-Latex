@@ -1,0 +1,118 @@
+\documentclass[12pt]{UNIPRletter}
+\usepackage{fontspec} 
+\usepackage{tikz} 
+\usepackage{xcolor}
+	\definecolor{uniprblue}{RGB}{0, 71, 171}
+	\definecolor{unipryellow}{RGB}{246, 190, 0}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{eso-pic}
+\usepackage[base]{babel}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\rhead{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+% CUSTOM FONT
+\setmainfont{[Cambria.ttf]}[BoldFont  = [CambriaBold.ttf], ItalicFont  = [CambriaItalic.ttf], BoldItalicFont = [CambriaBoldItalic.ttf] ]
+
+\newcommand{\watermark}[3]{\AddToShipoutPictureBG{
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\begin{tikzpicture}
+    \path (0,0) -- (\paperwidth,\paperheight);
+    \node[opacity=.06] at (current page.center)
+    {\includegraphics[width=1.25\textwidth]{unipr_logo.png}};
+    \end{tikzpicture}
+\vfill}}}
+
+\makeatletter
+\def\parsecomma#1,#2\endparsecomma{\def\page@x{#1}\def\page@y{#2}}
+\tikzdeclarecoordinatesystem{page}{
+    \parsecomma#1\endparsecomma
+    \pgfpointanchor{current page}{north east}
+    % Save the upper right corner
+    \pgf@xc=\pgf@x%
+    \pgf@yc=\pgf@y%
+    % save the lower left corner
+    \pgfpointanchor{current page}{south west}
+    \pgf@xb=\pgf@x%
+    \pgf@yb=\pgf@y%
+    % Transform to the correct placement
+    \pgfmathparse{(\pgf@xc-\pgf@xb)/2.*\page@x+(\pgf@xc+\pgf@xb)/2.}
+    \expandafter\pgf@x\expandafter=\pgfmathresult pt
+    \pgfmathparse{(\pgf@yc-\pgf@yb)/2.*\page@y+(\pgf@yc+\pgf@yb)/2.}
+    \expandafter\pgf@y\expandafter=\pgfmathresult pt
+}
+
+\makeatother
+
+% Definizioni
+\def\name{Dennis Turco}
+
+% Dipartimento
+\def\Where{\hspace{-1.2mm}\textbf{\color{uniprblue}
+Dipartimento di Scienze\\
+Matematiche, Fisiche e\\
+Informatiche,\\
+\color{unipryellow}Università di Parma
+}}
+
+% Additional Contact Information
+\def\Address{Parco Area delle Scienze, 53/A,} 
+\def\CityZip{43124, Parma PR, Italia} 
+\def\Email{\textbf{\color{uniprblue}E-mail}: \href{mailto:dennis.turco@studenti.unipr.it}{dennis.turco@studenti.unipr.it}}
+\def\TEL{\textbf{\color{uniprblue}TEL}: 3421666192}
+\def\URL{\textbf{\color{uniprblue}URL}: \url{https://dennisturco.github.io/}}
+
+%  Signature
+\signature{ 
+    \vspace{-12mm}\includegraphics[scale=0.08]{signature.png}\\\vspace{-2mm}
+    \name
+}
+
+\address{}
+
+\def\newaddress{
+    \Where\\ 
+    \Address\\ 
+    \CityZip\\ 
+    \TEL\\ 
+    \Email\\ 
+    \URL 
+}
+
+% DATE
+\date{\vspace{10mm} 7 Dicembre 2022} 
+
+\begin{document}
+\begin{letter}{
+   Università degli Studi di Parma\\ 
+   Parco Area delle Scienze, 53/A,\\ 
+   Parma PR, Italia
+}
+
+\begin{tikzpicture}[remember picture,overlay,,every node/.style={anchor=center}]
+\node[text width=7cm] at (page cs:0.5,0.73){\small \newaddress};
+\end{tikzpicture} 
+
+%  metodo dell'indirizzo all'inizio della lettera
+\opening{Caro Comitato di Candidatura\dots}
+
+% Body 
+\watermark{}{}{}
+
+Sono \textit{Dennis Turco}, nato il giorno 08/04/2001 a Fidenza (una piccola città in proviancia di Parma), dove sono
+residente. attualmente non sono ancora laureato (sto frequentando il terzo anno accademico), vorrei presentare richiesta di
+partecipare come tirocinante al lavoro di programmatore presso l'azienda ``azienda s.p.a" in quanto mi ritengo pronto a svolgere il lavoro che mi è stato proposto dal recruiter dell'azienda. Penso che sarebbe un'ottima opportunità in quanto sarebbe la prima lavorativa nel mondo della programmazione permettendomi quindi di maturare attraverso un esperienza formativa sia sul piano lavorativo che personale. 
+
+\closing{Cordialmente,}
+
+\end{letter}
+
+\end{document}

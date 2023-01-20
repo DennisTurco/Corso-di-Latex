@@ -1,0 +1,73 @@
+\documentclass{theme/uniprthesis}
+
+%%%%%%%%%%%Some Extra Packages%%%%%%%%%%%
+\usepackage[italian]{babel}		% To have Italin names in Sections, Figures, Chapters etc.
+\usepackage{todonotes}			% To ease the revision
+
+
+\usepackage{blindtext} 			% Dummy Text - remove
+\usepackage{color, colortbl}
+\usepackage{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%% THESIS / TITLE PAGE INFORMATION
+% Everybody needs to complete the following:
+
+\title{Consegna3 Esame LaTex}
+\author{Dennis Turco}
+\advisor{Prof. Luigi Marchi}
+\college{Dipartimento di Scienze Matematiche, Fisiche e Informatiche}
+\degree{Corso di Laurea Triennale in Informatica}
+\degreeyears{2020--2022}
+
+
+% Not mandatory fields
+\newcommand{\subTitle}{Submission3 LaTeX Exams} 
+\newcommand{\coadvisor}{Prof. Marco Aurelio} 
+\newcommand{\coadvisorSecond}{Prof. Alessio Franchi}
+%%% QUI I MIEI COMANDI %%%
+\newcommand{\functionStyle}[1]{{\textcolor{pink}{\textbf{#1}}}}
+\newcommand{\objectStyle}[1]{{\textcolor{red}{\textbf{#1}}}}
+\newcommand{\interfaceStyle}[1]{{\textcolor{purple}{\textbf{#1}}}}
+%%% FINE I MIEI COMANDI %%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength {\marginparwidth }{2cm}
+
+\begin{document}
+
+\maketitle
+
+%%%% Gli indici
+\pagestyle{plain}
+\pagenumbering{roman}
+\tableofcontents
+%
+\listoffigures    %Commentare se non vi sono Immagini
+\listofalgorithms %Commentare se non vi sono Algoritmi
+\listoftables     %Commentare se non vi sono Tabelle
+%
+%
+%
+%%%% La prefazione
+\include{Capitoli/Introduzione}
+%
+%%%% I Capitoli di Contenuto	
+\pagestyle{fancy}
+\include{Capitoli/Capitolo1}
+%
+%
+%%%% Le Conclusioni
+\pagestyle{plain}
+\include{Capitoli/Conclusione}
+%
+%%%% La bibliograﬁa
+\bibliographystyle{apalike}
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{./Bibliografia}
+%
+\include{Capitoli/Ringraziamenti}
+%
+\end{document}

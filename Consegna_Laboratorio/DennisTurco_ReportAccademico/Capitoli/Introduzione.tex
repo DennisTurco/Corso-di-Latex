@@ -1,0 +1,33 @@
+\chapter*{Introduzione} %Se si cambia il Titolo cambiare anche la riga successiva così che appia corretto nell'indice
+\addcontentsline{toc}{chapter}{Introduzione} %Per far apparire Introduzione nell'indice (Il nome deve rispecchiare quello del chapter)
+\pagenumbering{arabic} % Settaggio numerazione normale
+Prima di tutto ci tengo a precisare che le informazioni trattate
+le ho recuperate dal corso di Ingegneria del Software dell’Università di
+Parma.
+Per comodità e siccome in si tratta di davvero una tesi di laurea tratterò solo un capitolo del corso. 
+\newline
+In realtà, il corso partirebbe con la teoria a partire dalle \textbf{Tautologie} (che però non tratterò).
+\newline
+\emph{Tautologie} = Nella logica formale classica, proposizione che, volendo definire qualche oggetto o concetto, non faccia altro che ripetere sul predicato quanto è già detto sul soggetto. \href{https://www.google.com/search?q=Tautologie&oq=Tautologie&aqs=chrome..69i57j0i512l9.3456j1j15&sourceid=chrome&ie=UTF-8}{Qui la Definizione}
+\newline
+Le tautologie sono dette anche leggi logico-enunciative. Sono esempi di proposizione vere a prescindere dal valore di verità delle variabili enunciative (\href{https://it.wikipedia.org/wiki/Tautologia}{Wikipedia}).
+%
+\newline
+\newline
+%
+Esempio, Supponiamo: \\
+``$x > y$ " is true. \\
+``$\displaystyle \int f(x)\,dx = g(x) + C$ " è falso. \\
+``Calvin ha i calzini viola" è vero. \\
+Determinare il valore di verità. \\
+%
+$$(x > y \int f(x)\,dx = g(x) + C),\lnot (\hbox{Calvin ha i calzini viola})$$
+%
+Per semplicità: \\
+P = ``$x > y$ ". \\
+Q = ``$\displaystyle \int f(x)\,dx = g(x) + C$ ". \\
+R = ``Calvin ha i calzini viola". \\
+%
+Voglio determinare il valore di verità di $(PQ),\lnot R$. Poiché mi sono stati dati valori di verità specifici per P, Q e R, ho impostato una tabella di verità con una singola riga utilizzando i valori dati per P, Q e R:
+%
+$$\vbox{\offinterlineskip \halign{& \vrule # & \strut \hfil \quad # \quad \hfil \cr \noalign{\hrule} height2pt & \omit & & \omit & & \omit & & \omit & & \omit & & \omit & \cr & P & & Q & & R & & $PQ$ & & $\lnot R$ & & $(PQ),\lnot R$ & \cr height2pt & \omit & & \omit & & \omit & & \omit & & \omit & & \omit & \cr \noalign{\hrule} height2pt & \omit & & \omit & & \omit & & \omit & & \omit & & \omit & \cr & T & & F & & T & & F & & F & & T & \cr height2pt & \omit & & \omit & & \omit & & \omit & & \omit & & \omit & \cr \noalign{\hrule} }} $$

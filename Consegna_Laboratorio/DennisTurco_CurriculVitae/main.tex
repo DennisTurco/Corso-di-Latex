@@ -1,0 +1,171 @@
+\documentclass[]{llresume}
+
+% per i colori del documento
+\definecolor{accentcolor}{HTML}{A89F68}
+\definecolor{fillcolor}{HTML}{E7F0B8}
+\definecolor{headingcolor}{HTML}{424B54}
+
+\renewcommand{\emph}[1]{{\bfseries\color{accentcolor}#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Personal information
+%
+% For contacts and other info, you can use \infoGeneric{<icon>}{<text>}[<link>]
+% to add a line of information, or one of the following shortcuts in the form
+% \info<Shortcut>{<text>}[<link>]:
+%
+% \infoEmail          \infoDate           \infoLinkedin       \infoBook
+% \infoPhone          \infoPlace          \infoGithub         \infoAuthor
+% \infoAddress        \infoLink           \infoInstagram      \infoTools
+% \infoBirthday       \infoHomepage       \infoFlickr
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Nome
+\name{Dennis}{Turco}
+\def\name{Dennis Turco}
+
+% Foto Profilo
+\photo{photo.png}
+
+% Info
+\personalinfo{
+    \infoPlace{Nazionalità: italiana}
+    \infoBirthday{08/04/2001}
+    \infoAddress{Fidenza (PR), Emilia Romagna}
+    \infoEmail{dennisturco@dennisturco.com}[mailto:dennisturco@dennisturco.com]
+    \infoPhone{3421666192}
+    \infoHomepage{dennisturco.github.io}[https://dennisturco.github.io]
+    %\infoLinkedin{www.linkedin.com}%[https://www.linkedin.com/in/]
+    \infoGithub{github.com/DennisTurco}[https://github.com/DennisTurco]
+}
+
+% Tag line
+\tagline{
+    Sono \emph{\name}, nato il giorno 08/04/2001 a \emph{Fidenza} (una piccola città in proviancia di Parma), dove sono residente.
+    Vado all'\emph{Università di Parma} nella facoltà di \emph{Informatica} al terzo anno.
+    Sono una persona con tanti hobby e passioni a cui piace sperimentare cose nuove e che ha voglia di imparare, amo inoltre, il lavoro di gruppo, ma so lavorare anche individualmente.
+}
+
+\begin{document}
+
+\makeheader
+\begin{mainpane}
+    \begin{mainsection}{Esperienze Lavorative}
+        \entryJob
+            {Animatore Centro Estivo}
+            [Ho lavorato come animatore in un centro estivo per un mese, da Luglio ad Agosto come full-time.]
+            {Fornio(PR)}
+            {2019 (1 mese)}
+        \entryJob
+            {Fattorino}
+            [Ho lavorato come fattorino per una pizzeria con un contratto a chiamata.]
+            {Fidenza(PR)}
+            {Luglio 2020 -- Settembre 2021}
+        \entryJob
+            {Studente Universitario}
+            [Studio nell'Università di Parma nella facoltà di Informatica come full-time.]
+            {Università degli Studi di Parma}
+            {Settembre 2020}   
+        \entryJob
+            {Web Designer}
+            [Ho lavorato come Stagista in una azienda di Piacenza per 2 settimane come full-time tra Luglio e Agosto come sviluppatore Front-End.]
+            {Piacenza}
+            {Luglio 2021 -- Agosto 2021} 
+        \entryJob
+            {Insegnante Dirigente}
+            [Ho lavorato in un'associazione a Fidenza per 6 mesi come part-time da Settembre a Febbraio come insegnante Dirigente di un dopo-scuola.]
+            {Fidenza (PR)}
+            {Settembre 2021 -- Febbraio 2022}
+    \end{mainsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    \begin{mainsection}{Selected publications}
+%        \entryPub
+%            {Looking for Water on Mars}
+%            {C. Esker Gabbro et al.}
+%            {Journal of ambitious hobby projects (2012)}
+%            {DOI: 12.3456/1234567.1234567}
+%            [https://doi.org/12.3456/1234567.1234567]
+%        \entryPub
+%            {Life on Mars: All You Need Is a Twix}
+%            {C. Esker Gabbro et al.}
+%            {Conference on universal puns (2017)}
+%            {DOI: 12.6543/7654321.7654321}
+%            [https://doi.org/12.6543/7654321.7654321]
+%    \end{mainsection}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{mainsection}{Percorso di Studio}
+        \entryJob
+            {Diploma}
+            [Voto Finale 7/10]
+            {Scuola Media Zani (Fidenza)}
+            {Settembre 2012 - Giugno 2015}
+        \entryJob
+            {Diploma}
+            [Voto Finale - 90/100]
+            {Scuola Superiore Berenini,
+            Liceo Scienze Applicate}
+            {Settembre 2015 - Giugno 2020}
+        \entryJob
+            {Laurea Triennale - ancora in corso}
+            [Voto ...]
+            {Università Degli Studi di Parma}
+            {Ottobre 2020 - }
+    \end{mainsection} 
+
+    \begin{mainsection}{Skills \& Lingue Parlate}
+        \entrySkills[Linguaggi di Programmazione]{
+            \skill{Python}{2}
+            \skill{C}{4}
+            \skill{C++}{4}
+            \skill{Java}{4}
+            \skill{C\#}{2}
+            \skill{Android}{2}
+            \skill{SQL}{1}
+        }
+        \entrySkills[Tool Aggiuntivi]{
+            \simpleskill{Pacchetto Office}
+            \simpleskill{LaTeX}
+            \simpleskill{GitHub}
+            \simpleskill{SonyVegas}
+            \simpleskill{Photoshop}
+        }
+        \entrySkills[Lingue]{
+            \skill{Italiano}{5}
+            \skill{Inglese (livello B1)}{2}
+        }
+    \end{mainsection}
+
+    \begin{mainsection}{Main Projects}
+        \entryGeneric
+            {Minesweeper Game - JAVA}
+            [il gioco ``campo minato" creato in Java]
+            [\infoHomepage
+                {dennisturco.github.io}
+                [https://dennisturco.github.io/]]
+            [\infoGithub
+                {Provami}
+                [https://github.com/DennisTurco/AutoBackupProgram]]
+        \entryGeneric
+            {Auto Backup Program - JAVA}
+            [Programma per eseguire dei backup automatizzati]
+            [\infoHomepage
+                {dennisturco.github.io}
+                [https://dennisturco.github.io/]]
+            [\infoGithub
+                {Provami}
+                [https://github.com/DennisTurco/AutoBackupProgram]]
+    \end{mainsection}
+
+    \begin{mainsection}{Interessi Personali}
+        \entryTags{
+            \boxedtag{Chitarra Elettrica}
+            \boxedtag{Video Editing}
+            \boxedtag{Videogiochi}
+            \boxedtag{Programmazione}
+        }
+    \end{mainsection}
+\end{mainpane}
+
+\end{document}
